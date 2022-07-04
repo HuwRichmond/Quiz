@@ -4,45 +4,36 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 console.log(choices);
 
-// Selects element by class
 var timeEl = document.querySelector(".time");
 
-// Selects element by id
 var mainEl = document.getElementById("main");
 
 var secondsLeft = 10;
 
-function setTime() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left until game over";
+//this function is to trigger the timer when the start button is used. event listener on click 
+document.getElementsByClassName("start-button").addEventListener("click", function(){
+    var timeleft = 10;
+//this sets the base value for the timer "timeleft" section below is supposed to deduct  value of 1 from the timer every 1 second
+    var downloadTimer = setInterval(function function1(){
+    document.getElementsByClassName("card timer").innerHTML = timeleft + 
+    " "+"seconds remaining";
 
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      // Calls function to create and append image
-      sendMessage();
-    } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        timerEl.textContent = timeLeft + ' second remaining';
-        timeLeft--;
-      } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-      
+    timeleft -= 1;
+    if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        document.getElementsByClassName("card timer").innerHTML = "Time is up!"
+    }
+    }, 1000);
 
-      }
-  }, 1000);
-}
+    console.log(countdown);
+});
 
 setTime();
 
 let current
 //these are the questions that will be prompted when starting the start of the quiz.
+
+//each qestion is assigned a choice value to order them on the text boxes and there is 1 unique answer value attached to only 1 of the items in each list
 let questions = [
     {
         question: "Inside which HTML element do we put the Javascript?",
@@ -77,10 +68,7 @@ let questions = [
         answer: 3
     },
 ]
-
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3; 
-
+//this is attempts to make the start of the game work as intended. i could not get this functionality to work. it is based on samples i found online.
 startGame = () => {
     questionCounter = 0;
     score = 0;
