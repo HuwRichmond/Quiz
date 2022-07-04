@@ -10,3 +10,5 @@ The quiz webpage is intended to have the following features:
 - The game records high scores on local storage.
 
 Repository includes README.md, index.html, script.js and style.css
+
+![Screenshot of deployed application on browser".](./screenshot.png)
