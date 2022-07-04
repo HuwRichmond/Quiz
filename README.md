@@ -12,3 +12,5 @@ The quiz webpage is intended to have the following features:
 Repository includes README.md, index.html, script.js and style.css
 
 ![Screenshot of deployed application on browser".](./screenshot.png)
+
+Deployed URL https://huwrichmond.github.io/Quiz/
